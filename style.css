@@ -1,95 +1,237 @@
-#projects {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  font-family: 'Inter', sans-serif;
+/* Grundinställningar */
+:root {
+    --bg-color: #fcfcfc;
+    --text-color: #1a1a1a;
+    --text-light: #555555;
+    --accent-color: #0f172a;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mjuk scrollning när man klickar i menyn */
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Typografi för rubriker (Kod-stil) */
+h1, h2, h3, .nav-logo {
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
+}
+
+/* Navigeringsmeny (Flikarna i toppen) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Fäster menyn i toppen när man scrollar */
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Huvudsektion (Hero) */
+.hero {
+    max-width: 800px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.hero .hero-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Gemensam stil för sektioner */
+.section {
+    max-width: 900px;
+    margin: 0 auto 6rem auto;
+    padding: 0 2rem;
+    scroll-margin-top: 100px; /* Gör så att menyn inte täcker rubriken när man klickar dit */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.about-content {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Projektkort */
 .project-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  background-color: #ffffff;
-  padding: 2rem;
-  margin-bottom: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Mjuk skugga */
-  transition: transform 0.3s ease;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px); /* Kortet lyfter lite när man hovrar */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Flexbox för textdelen */
-.project-info {
-  flex: 1; /* Tar upp halva utrymmet */
-}
-
-.project-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
-
-.project-header h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #1a1a1a;
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-info p {
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
 }
 
-/* Länk-knapparna */
-.project-links {
-  display: flex;
-  gap: 1rem;
+/* Piller för kodspråk (Teknik-taggar) */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
+.tech-tags span {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Knappar */
 .btn {
-  padding: 10px 20px;
-  background-color: #1a1a1a;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background 0.2s;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    border: 2px solid var(--accent-color);
 }
 
 .btn:hover {
-  background-color: #333;
+    background-color: #334155;
+    border-color: #334155;
 }
 
 .btn-outline {
-  background-color: transparent;
-  color: #1a1a1a;
-  border: 1px solid #1a1a1a;
+    background-color: transparent;
+    color: var(--accent-color);
 }
 
 .btn-outline:hover {
-  background-color: #f4f4f4;
+    background-color: #f8fafc;
 }
 
-/* Bilden till höger */
-.project-image {
-  flex: 1;
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
 }
 
-.project-image img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
+/* Sidfot */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    margin-top: 4rem;
 }
 
-/* Gör den mobilanpassad (Mobil först/Responsive) */
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiv design för mobiler */
 @media (max-width: 768px) {
-  .project-card {
-    flex-direction: column-reverse; /* Lägger bilden överst på mobilen */
-  }
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
 }
