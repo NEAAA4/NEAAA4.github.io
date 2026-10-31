@@ -76,20 +76,19 @@ h1, h2, h3, .nav-logo {
 
 /* Huvudsektion (Hero) */
 .hero {
-    max-width: 500px;
+    max-width: 800px; /* Ändrat från 500px till 800px så namnet får plats */
     margin: 6rem auto;
     padding: 0 2rem;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Gjort texten liite mindre (valfritt, men brukar se bra ut) */
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .hero .subtitle {
     font-size: 1.2rem;
     color: var(--text-light);
