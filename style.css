@@ -89,6 +89,10 @@ h1, h2, h3, .nav-logo {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     white-space: nowrap;
+
+    line-height: 1.4;
+    padding-bottom: 15pxt;
+    display: inline-block;
 }
 .hero .subtitle {
     font-size: 1.2rem;
