@@ -88,6 +88,7 @@ h1, h2, h3, .nav-logo {
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap;
 }
 .hero .subtitle {
     font-size: 1.2rem;
