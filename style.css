@@ -76,7 +76,7 @@ h1, h2, h3, .nav-logo {
 
 /* Huvudsektion (Hero) */
 .hero {
-    max-width: 800px;
+    max-width: 600px;
     margin: 6rem auto;
     padding: 0 2rem;
     text-align: center;
@@ -85,7 +85,6 @@ h1, h2, h3, .nav-logo {
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 0.5rem;
-    /* Övergång från ljusrosa till lila */
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
