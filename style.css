@@ -76,7 +76,7 @@ h1, h2, h3, .nav-logo {
 
 /* Huvudsektion (Hero) */
 .hero {
-    max-width: 600px;
+    max-width: 500px;
     margin: 6rem auto;
     padding: 0 2rem;
     text-align: center;
