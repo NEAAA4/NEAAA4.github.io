@@ -83,7 +83,7 @@ h1, h2, h3, .nav-logo {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
@@ -242,10 +242,18 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
-    .hero h1 {
-        font-size: 2.2rem;
+    
+    .hero {
+        margin: 3rem auto; /* Lite mindre utrymme ovanför på mobilen */
     }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Krymper texten ordentligt */
+        white-space: normal; /* VIKTIGT: Låter namnet hoppa ner på en ny rad på mobilen så det inte förstör skärmen */
+        line-height: 1.2; /* Ser till att radavståndet är snyggt om det bryts */
+    }
+
     .hero-buttons {
-        flex-direction: column;
+        flex-direction: column; /* Lägger knapparna under varandra på mobilen */
     }
 }
