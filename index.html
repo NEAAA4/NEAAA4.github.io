@@ -96,6 +96,14 @@
                 <a href="https://github.com/NEAAA4" target="_blank">GitHub</a>
             </div>
         </footer>
-
+    
+        <!-- Skript för ficklamps-effekten -->
+        <script>
+            document.addEventListener('mousemove', function(e) {
+                // Skickar musens position till vår CSS
+                document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+                document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+            });
+        </script>
     </body>
 </html>
