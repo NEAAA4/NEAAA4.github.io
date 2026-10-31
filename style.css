@@ -76,14 +76,14 @@ h1, h2, h3, .nav-logo {
 
 /* Huvudsektion (Hero) */
 .hero {
-    max-width: 800px; /* Ändrat från 500px till 800px så namnet får plats */
+    max-width: 1024px; /* Ändrat från 500px till 800px så namnet får plats */
     margin: 6rem auto;
     padding: 0 2rem;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 3.5rem; /* Gjort texten liite mindre (valfritt, men brukar se bra ut) */
+    font-size: 3rem;
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
@@ -110,7 +110,7 @@ h1, h2, h3, .nav-logo {
 
 /* Gemensam stil för sektioner */
 .section {
-    max-width: 900px;
+    max-width: 1024px;
     margin: 0 auto 6rem auto;
     padding: 0 2rem;
     scroll-margin-top: 100px; /* Gör så att menyn inte täcker rubriken när man klickar dit */
