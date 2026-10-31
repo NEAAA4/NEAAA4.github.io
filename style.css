@@ -1,4 +1,4 @@
-/* Grundinställningar */
+/* Grundinställningar & Tema */
 :root {
     /* Bakgrund och text */
     --bg-color: #120a1f;       /* Djup mörklila/näst intill svart */
@@ -25,11 +25,32 @@ html {
     scroll-behavior: smooth; 
 }
 
+/* Himlen / Solnedgången */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
+    /* Solnedgången: Mörklila i toppen (samma som bg-color), rosa i mitten, orange i botten */
+    background: linear-gradient(to bottom, #120a1f 0%, #3b0764 50%, #9d174d 80%, #ea580c 100%);
+    background-attachment: fixed; /* Låser bakgrunden så den inte scrollar iväg */
     color: var(--text-color);
     line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Ficklamps-effekten (Solen) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+        700px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(253, 186, 116, 0.15), /* Ett varmt, mjukt orange/persiko-ljus */
+        transparent 40%
+    );
+    pointer-events: none; 
+    z-index: 50; /* Ligger i bakgrunden */
 }
 
 /* Typografi för rubriker (Kod-stil) */
@@ -38,15 +59,17 @@ h1, h2, h3, .nav-logo {
     font-weight: 500;
 }
 
-/* Navigeringsmeny (Flikarna i toppen) */
+/* Navigeringsmeny (Frostat glas) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky; /* Fäster menyn i toppen när man scrollar */
+    background-color: rgba(18, 10, 31, 0.7); /* Genomskinlig version av bg-color */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -76,23 +99,26 @@ h1, h2, h3, .nav-logo {
 
 /* Huvudsektion (Hero) */
 .hero {
-    max-width: 1024px; /* Ändrat från 500px till 800px så namnet får plats */
+    max-width: 800px;
     margin: 6rem auto;
     padding: 0 2rem;
     text-align: center;
+    position: relative;
+    z-index: 60; /* Håller texten över mus-ljuset */
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    white-space: nowrap;
-
-    padding-bottom: 15pxt;
+    white-space: nowrap; /* Håller namnet på en rad på datorn */
+    line-height: 1.4; /* Förhindrar att texten suddas ut i botten */
+    padding-bottom: 15px; 
     display: inline-block;
 }
+
 .hero .subtitle {
     font-size: 1.2rem;
     color: var(--text-light);
@@ -113,17 +139,19 @@ h1, h2, h3, .nav-logo {
 
 /* Gemensam stil för sektioner */
 .section {
-    max-width: 1024px;
+    max-width: 900px;
     margin: 0 auto 6rem auto;
     padding: 0 2rem;
-    scroll-margin-top: 100px; /* Gör så att menyn inte täcker rubriken när man klickar dit */
+    scroll-margin-top: 100px;
+    position: relative;
+    z-index: 60;
 }
 
 .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--accent-color);
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 0.5rem;
     display: inline-block;
 }
@@ -133,22 +161,22 @@ h1, h2, h3, .nav-logo {
     color: var(--text-light);
 }
 
-/* Projektkort */
+/* Projektkort (Frostat glas) */
 .project-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 16px; /* Detta gör hörnen runda istället för fyrkantiga! */
+    background-color: rgba(30, 18, 45, 0.6); /* Genomskinlig version av card-bg */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     padding: 2.5rem;
     margin-bottom: 2rem;
-    /* Skapar en mörk, mjuk skugga under kortet */
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* När musen dras över kortet (Hover) */
 .project-card:hover {
-    transform: translateY(-8px); /* Kortet lyfter uppåt */
-    border-color: var(--accent-color); /* Kanten lyser upp i rosa */
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
 }
 
 .project-info h3 {
@@ -170,13 +198,13 @@ h1, h2, h3, .nav-logo {
 }
 
 .tech-tags span {
-    background-color: rgba(217, 70, 239, 0.15); /* Genomskinlig rosa */
+    background-color: rgba(217, 70, 239, 0.15);
     color: var(--accent-color); 
     padding: 0.4rem 1rem;
     border-radius: 50px; 
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid rgba(217, 70, 239, 0.3); /* Lätt rosa kant */
+    border: 1px solid rgba(217, 70, 239, 0.3);
 }
 
 /* Knappar */
@@ -210,31 +238,18 @@ h1, h2, h3, .nav-logo {
     font-size: 0.9rem;
 }
 
-/* Ficklamps-effekten (Cursor Glow) */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(
-        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(217, 70, 239, 0.5), /* Ändrat från 0.08 till 0.5 för att tvinga fram det! */
-        transparent 40%
-    );
-    pointer-events: none; 
-    z-index: 9999; /* Extremt högt så den ligger över ALLT */
-}
-
-/* Sidfot */
+/* Sidfot (Frostat glas) */
 footer {
     text-align: center;
     padding: 3rem 2rem;
-    background-color: var(--bg-color); /* Anpassad till det mörka temat */
-    border-top: 1px solid var(--border-color);
+    background-color: rgba(18, 10, 31, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-light);
     margin-top: 4rem;
+    position: relative;
+    z-index: 60;
 }
 
 .footer-links {
@@ -264,16 +279,17 @@ footer {
     }
     
     .hero {
-        margin: 3rem auto; /* Lite mindre utrymme ovanför på mobilen */
+        margin: 3rem auto;
     }
 
     .hero h1 {
-        font-size: 2.2rem; /* Krymper texten ordentligt */
-        white-space: normal; /* VIKTIGT: Låter namnet hoppa ner på en ny rad på mobilen så det inte förstör skärmen */
-        line-height: 1.2; /* Ser till att radavståndet är snyggt om det bryts */
+        font-size: 2.2rem;
+        white-space: normal; /* Tillåter namnet att brytas snyggt på mobilen */
+        line-height: 1.4;
+        padding-bottom: 10px;
     }
 
     .hero-buttons {
-        flex-direction: column; /* Lägger knapparna under varandra på mobilen */
+        flex-direction: column;
     }
 }
