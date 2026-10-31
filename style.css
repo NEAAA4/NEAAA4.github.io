@@ -83,7 +83,7 @@ h1, h2, h3, .nav-logo {
 }
 
 .hero h1 {
-    font-size: 1.25rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, #f472b6, #a855f7);
     -webkit-background-clip: text;
