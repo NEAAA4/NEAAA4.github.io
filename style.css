@@ -1,11 +1,17 @@
 /* Grundinställningar */
 :root {
-    --bg-color: #fcfcfc;
-    --text-color: #1a1a1a;
-    --text-light: #555555;
-    --accent-color: #0f172a;
-    --card-bg: #ffffff;
-    --border-color: #e2e8f0;
+    /* Bakgrund och text */
+    --bg-color: #120a1f;       /* Djup mörklila/näst intill svart */
+    --text-color: #fdfaef;     /* Krispig vit med varm ton */
+    --text-light: #a395b3;     /* Dämpad lila-grå för brödtext */
+
+    /* Kort och detaljer */
+    --card-bg: #1e122d;        /* Något ljusare mörklila för korten */
+    --border-color: #3b244d;   /* Subtila lila-tonade kanter */
+
+    /* Accentfärger (Rosa/Lila tema) */
+    --accent-color: #d946ef;   /* Fuchsia/Självlysande rosa */
+    --accent-hover: #c026d3;   /* Något mörkare rosa vid hover */
 }
 
 * {
@@ -77,8 +83,12 @@ h1, h2, h3, .nav-logo {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
+    /* Övergång från ljusrosa till lila */
+    background: linear-gradient(to right, #f472b6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero .subtitle {
@@ -125,16 +135,18 @@ h1, h2, h3, .nav-logo {
 .project-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 16px; /* Detta gör hörnen runda istället för fyrkantiga! */
+    padding: 2.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Skapar en mörk, mjuk skugga under kortet */
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+/* När musen dras över kortet (Hover) */
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    transform: translateY(-8px); /* Kortet lyfter uppåt */
+    border-color: var(--accent-color); /* Kanten lyser upp i rosa */
 }
 
 .project-info h3 {
@@ -156,12 +168,13 @@ h1, h2, h3, .nav-logo {
 }
 
 .tech-tags span {
-    background-color: #f1f5f9;
-    color: #334155;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    background-color: rgba(217, 70, 239, 0.15); /* Genomskinlig rosa */
+    color: var(--accent-color); 
+    padding: 0.4rem 1rem;
+    border-radius: 50px; 
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
+    border: 1px solid rgba(217, 70, 239, 0.3); /* Lätt rosa kant */
 }
 
 /* Knappar */
@@ -172,13 +185,13 @@ h1, h2, h3, .nav-logo {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 500;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease;
     border: 2px solid var(--accent-color);
 }
 
 .btn:hover {
-    background-color: #334155;
-    border-color: #334155;
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 .btn-outline {
@@ -187,7 +200,7 @@ h1, h2, h3, .nav-logo {
 }
 
 .btn-outline:hover {
-    background-color: #f8fafc;
+    background-color: rgba(217, 70, 239, 0.1);
 }
 
 .btn-small {
@@ -199,7 +212,7 @@ h1, h2, h3, .nav-logo {
 footer {
     text-align: center;
     padding: 3rem 2rem;
-    background-color: #ffffff;
+    background-color: var(--bg-color); /* Anpassad till det mörka temat */
     border-top: 1px solid var(--border-color);
     color: var(--text-light);
     margin-top: 4rem;
@@ -216,9 +229,11 @@ footer {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
+    color: var(--accent-color);
     text-decoration: underline;
 }
 
