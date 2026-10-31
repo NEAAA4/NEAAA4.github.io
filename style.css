@@ -218,14 +218,13 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    /* Här bestämmer vi färgen på ljuset. Just nu en mjuk lila/rosa */
     background: radial-gradient(
         600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(217, 70, 239, 0.08), /* Ljuset i mitten (0.08 är hur starkt det lyser) */
+        rgba(217, 70, 239, 0.5), /* Ändrat från 0.08 till 0.5 för att tvinga fram det! */
         transparent 40%
     );
-    pointer-events: none; /* Gör att du fortfarande kan klicka på knappar genom ljuset */
-    z-index: 50; /* Lägger ljuset över bakgrunden men under texten (försök undvika att täcka menyn) */
+    pointer-events: none; 
+    z-index: 9999; /* Extremt högt så den ligger över ALLT */
 }
 
 /* Sidfot */
