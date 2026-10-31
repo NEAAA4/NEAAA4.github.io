@@ -1,96 +1,95 @@
-/* Grundinställningar */
-:root {
-    --primary-color: #2563eb; /* En snygg blå färg för länkar/rubriker */
-    --text-color: #333;
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
+#projects {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 0;
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Mjuk skugga */
+  transition: transform 0.3s ease;
 }
 
-/* Behållare som centrerar innehållet på sidan */
-header, section, footer {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+.project-card:hover {
+  transform: translateY(-5px); /* Kortet lyfter lite när man hovrar */
 }
 
-/* Header-styling */
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: var(--card-bg);
-    border-bottom: 3px solid var(--primary-color);
-    border-radius: 0 0 8px 8px;
+/* Flexbox för textdelen */
+.project-info {
+  flex: 1; /* Tar upp halva utrymmet */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: var(--primary-color);
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-/* Sektions-styling */
-section {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+.project-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a1a1a;
 }
 
-h2 {
-    border-left: 5px solid var(--primary-color);
-    padding-left: 15px;
-    color: var(--primary-color);
+.project-info p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-/* Projektlista */
-#projects ul {
-    list-style: none;
-    padding: 0;
+/* Länk-knapparna */
+.project-links {
+  display: flex;
+  gap: 1rem;
 }
 
-#projects li {
-    padding: 15px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    transition: transform 0.2s;
+.btn {
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.2s;
 }
 
-#projects li:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary-color);
+.btn:hover {
+  background-color: #333;
 }
 
-/* Länkar */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
+.btn-outline {
+  background-color: transparent;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
 }
 
-a:hover {
-    text-decoration: underline;
+.btn-outline:hover {
+  background-color: #f4f4f4;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #64748b;
+/* Bilden till höger */
+.project-image {
+  flex: 1;
 }
 
-/* Responsiv design för mobiler */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
+.project-image img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Gör den mobilanpassad (Mobil först/Responsive) */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column-reverse; /* Lägger bilden överst på mobilen */
+  }
 }
