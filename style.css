@@ -14,6 +14,7 @@
     --accent-hover: #c026d3;   /* Något mörkare rosa vid hover */
 }
 
+/* Fixat: Ändrat bindestreck till asterisk för att nollställa marginaler överallt */
 * {
     margin: 0;
     padding: 0;
@@ -90,9 +91,9 @@ a.btn-outline {
     text-decoration: none;
 }
 
-/* Slimmar ner den lilla knappen så den ser ut som ett smidigt piller i menyn */
-.btn-small {
-    padding: 0.35rem 1.2rem; /* Mindre padding uppe och nere */
+/* Fixat: Slimmar ner knappen ENDAST i menyn */
+.navbar .btn-small {
+    padding: 0.35rem 1.2rem;
     font-size: 0.95rem;
     line-height: normal;
 }
@@ -273,14 +274,6 @@ a.btn-outline {
     box-shadow: 0 0 10px rgba(217, 70, 239, 0.2);
 }
 
-/* Responsiv anpassning för mobiler */
-@media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-    }
-}
-
 /* Piller för kodspråk (Teknik-taggar) */
 .tech-tags {
     display: flex;
@@ -330,14 +323,14 @@ a.btn-outline {
 .btn-outline:hover {
     background: rgba(217, 70, 239, 0.1);
     box-shadow: 0 8px 20px rgba(217, 70, 239, 0.2);
-    /* translateY sköts redan av .btn, så båda knapparna lyfter snyggt */
 }
 
-/* Den mindre varianten (för projektkorten) */
+/* Den mindre varianten (för projektkorten - fungerar nu som den ska) */
 .btn-small {
     padding: 0.5rem 1.2rem;
     font-size: 0.9rem;
 }
+
 /* Sidfot */
 footer {
     text-align: center;
@@ -374,6 +367,12 @@ footer {
     .navbar {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    /* Flyttade in kontaktformulärets responsivitet hit för bättre struktur */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 2rem;
     }
     
     .hero {
