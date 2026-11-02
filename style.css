@@ -39,8 +39,8 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 500vw;
-    height: 500vh;
+    width: 2000vw;
+    height: 2000vh;
     background: radial-gradient(
         1000px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
         rgba(217, 70, 239, 0.15), /* Din rosa accentfärg, mjuk och behaglig (0.15) */
