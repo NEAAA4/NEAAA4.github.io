@@ -77,6 +77,26 @@ h1, h2, h3, .nav-logo {
     color: var(--accent-color);
 }
 
+/* Centrerar länkarna och knappen horisontellt */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Tvingar fram den rosa färgen på just outline-knappar */
+a.btn-outline {
+    color: #d946ef; 
+    text-decoration: none;
+}
+
+/* Slimmar ner den lilla knappen så den ser ut som ett smidigt piller i menyn */
+.btn-small {
+    padding: 0.35rem 1.2rem; /* Mindre padding uppe och nere */
+    font-size: 0.95rem;
+    line-height: normal;
+}
+
 /* Huvudsektion (Hero) */
 .hero {
     max-width: 1024px; 
@@ -154,17 +174,111 @@ h1, h2, h3, .nav-logo {
 /* När musen dras över kortet (Hover) */
 .project-card:hover {
     transform: translateY(-8px); 
-    border-color: var(--accent-color); 
+    border-color: #a855f7; /* Matchar den lila tonen i gradienten */
+    
+    /* Skapar ett rosa och lila neon-sken runt kortet */
+    box-shadow: 0 10px 30px -10px rgba(244, 114, 182, 0.4), 
+                0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 .project-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    
+    /* Lägger till samma övertoning som i huvudrubriken */
+    background: linear-gradient(to right, #f472b6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .project-info p {
     color: var(--text-light);
     margin-bottom: 1.5rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    /* Skapar kolumner som anpassar sig efter skärmens storlek */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Contact Section */
+.contact-wrapper {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.contact-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.contact-text p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling när användaren klickar i fältet */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.2);
+}
+
+/* Responsiv anpassning för mobiler */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
 }
 
 /* Piller för kodspråk (Teknik-taggar) */
@@ -185,37 +299,45 @@ h1, h2, h3, .nav-logo {
     border: 1px solid rgba(217, 70, 239, 0.3); 
 }
 
-/* Knappar */
+/* Grundknapp (Huvudknappen) */
 .btn {
-    padding: 0.8rem 1.5rem;
-    background-color: var(--accent-color);
+    padding: 0.8rem 1.8rem; /* Lite bredare för en snyggare form */
+    background: linear-gradient(to right, #d946ef, #a855f7); /* Gradient-färg */
     color: #ffffff;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease, border-color 0.3s ease;
-    border: 2px solid var(--accent-color);
+    border-radius: 50px; /* Ger den moderna "pill"-formen */
+    font-weight: 600; /* Lite fetare text */
+    letter-spacing: 0.5px; /* Lite mer luft mellan bokstäverna */
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
 }
 
+/* När man drar musen över huvudknappen */
 .btn:hover {
-    background-color: var(--accent-hover);
-    border-color: var(--accent-hover);
+    transform: translateY(-3px); /* Knappen "lyfter" sig lite */
+    box-shadow: 0 8px 20px rgba(217, 70, 239, 0.4); /* Neon-sken undertill */
 }
 
+/* Sekundär knapp (Outline) */
 .btn-outline {
-    background-color: transparent;
-    color: var(--accent-color);
+    background: transparent;
+    color: #d946ef;
+    border: 2px solid #d946ef;
 }
 
+/* När man drar musen över outline-knappen */
 .btn-outline:hover {
-    background-color: rgba(217, 70, 239, 0.1);
+    background: rgba(217, 70, 239, 0.1);
+    box-shadow: 0 8px 20px rgba(217, 70, 239, 0.2);
+    /* translateY sköts redan av .btn, så båda knapparna lyfter snyggt */
 }
 
+/* Den mindre varianten (för projektkorten) */
 .btn-small {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     font-size: 0.9rem;
 }
-
 /* Sidfot */
 footer {
     text-align: center;
